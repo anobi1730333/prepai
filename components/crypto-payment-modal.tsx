@@ -15,7 +15,7 @@ interface CryptoPaymentModalProps {
 }
 
 export function CryptoPaymentModal({ isOpen, onClose, userId, plan }: CryptoPaymentModalProps) {
-  const [cryptocurrency, setCryptocurrency] = useState<string>('USDT');
+  const [cryptocurrency, setCryptocurrency] = useState<string>('USDT-TRC20');
   const [paymentDetails, setPaymentDetails] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -24,7 +24,8 @@ export function CryptoPaymentModal({ isOpen, onClose, userId, plan }: CryptoPaym
     { value: 'BTC', label: 'Bitcoin (BTC)', icon: '₿' },
     { value: 'ETH', label: 'Ethereum (ETH)', icon: 'Ξ' },
     { value: 'BNB', label: 'BNB (BNB)', icon: '🔶' },
-    { value: 'USDT', label: 'Tether (USDT)', icon: '₮' },
+    { value: 'USDT', label: 'Tether (USDT - ERC20)', icon: '₮' },
+    { value: 'USDT-TRC20', label: 'Tether (USDT - TRC20)', icon: '₮' },
     { value: 'USDC', label: 'USD Coin (USDC)', icon: '$' },
   ];
 

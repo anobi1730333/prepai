@@ -27,15 +27,16 @@ export function Navbar() {
         <div className="flex items-center gap-4">
           {session ? (
             <>
-              <Link href="/pricing">
-                <Button
-                  variant="outline"
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 hover:from-blue-700 hover:to-purple-700"
-                >
+              <Button
+                asChild
+                variant="outline"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 hover:from-blue-700 hover:to-purple-700"
+              >
+                <Link href="/pricing">
                   <Sparkles className="h-4 w-4 mr-2" />
                   Upgrade to Premium
-                </Button>
-              </Link>
+                </Link>
+              </Button>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" size="icon">
@@ -56,14 +57,12 @@ export function Navbar() {
             </>
           ) : (
             <>
-              <Link href="/auth/signin">
-                <Button variant="ghost">Sign In</Button>
-              </Link>
-              <Link href="/auth/signup">
-                <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-                  Get Started
-                </Button>
-              </Link>
+              <Button asChild variant="ghost">
+                <Link href="/auth/signin">Sign In</Link>
+              </Button>
+              <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                <Link href="/auth/signup">Get Started</Link>
+              </Button>
             </>
           )}
         </div>

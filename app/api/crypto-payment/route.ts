@@ -5,13 +5,13 @@ import { eq } from 'drizzle-orm';
 
 /**
  * Cryptocurrency Payment Integration (Binance Pay)
- * Supports: BTC, ETH, BNB, USDT, USDC
+ * Supports: BTC, ETH, BNB, USDT (ERC20, TRC20), USDC
  */
 
 interface CryptoPaymentRequest {
   userId: string;
   plan: 'monthly' | 'yearly';
-  cryptocurrency: 'BTC' | 'ETH' | 'BNB' | 'USDT' | 'USDC';
+  cryptocurrency: 'BTC' | 'ETH' | 'BNB' | 'USDT' | 'USDT-TRC20' | 'USDC';
   amount: number;
 }
 
@@ -42,6 +42,10 @@ const CRYPTO_WALLETS = {
     address: '0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb',
     network: 'Ethereum (ERC20) / BSC (BEP20)',
   },
+  'USDT-TRC20': {
+    address: 'TGe2KwSvygmxwh1z61GCuCRnNGebn3gk99',
+    network: 'TRON (TRC20)',
+  },
   USDC: {
     address: '0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb',
     network: 'Ethereum (ERC20)',
@@ -60,6 +64,7 @@ const CRYPTO_RATES = {
   ETH: 2300,
   BNB: 310,
   USDT: 1,
+  'USDT-TRC20': 1,
   USDC: 1,
 };
 
